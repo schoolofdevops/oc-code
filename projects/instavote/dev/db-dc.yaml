@@ -1,14 +1,13 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
   name: db
   namespace: instavote
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      tier: back
-      app: postgres
+    tier: back
+    app: postgres
   minReadySeconds: 10
   template:
     metadata:
