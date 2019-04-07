@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: vote
+spec:
+  host: vote.example.com
+  path: "/"
+  to:
+    kind: Service
+    name: vote

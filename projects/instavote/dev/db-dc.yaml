@@ -24,3 +24,9 @@ spec:
         ports:
         - containerPort: 5432
           protocol: TCP
+        securityContext:
+          privileged: true
+#          capabilities:
+#            add:
+#              - CHOWN
+

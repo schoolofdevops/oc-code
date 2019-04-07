@@ -1,14 +1,13 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
   name: db
   namespace: instavote
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      tier: back
-      app: postgres
+    tier: back
+    app: postgres
   minReadySeconds: 10
   template:
     metadata:
@@ -25,6 +24,8 @@ spec:
         ports:
         - containerPort: 5432
           protocol: TCP
+        securityContext:
+          privileged: true
         volumeMounts:
         - name: db-vol
           mountPath: /var/lib/postgresql/data
