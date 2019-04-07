@@ -1,0 +1,27 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: redis
+  namespace: instavote
+spec:
+  replicas: 2
+  selector:
+    tier: back
+    role: redis
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: redis
+        tier: back
+        version: latest
+    spec:
+      containers:
+      - image: schoolofdevops/redis:latest
+        imagePullPolicy: Always
+        name: redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP
+      restartPolicy: Always

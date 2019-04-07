@@ -1,0 +1,28 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: null
+  name: results
+spec:
+  replicas: 1
+  selector:
+    deployment-config.name: results
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        deployment-config.name: results
+        role: results
+    spec:
+      containers:
+      - image: schoolofdevops/vote-result
+        name: default-container
+        securityContext: 
+          capabilities: 
+            add: 
+              - NET_BIND_SERVICE
+        resources: {}
+  test: false
+  triggers: null

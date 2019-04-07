@@ -1,28 +1,28 @@
-apiVersion: xxx
-kind: xxx
+apiVersion: v1
+kind: ReplicationController
 metadata:
-  xxx 
+  name: vote
 spec:
-  xxx 
-  template: 
+  minReadySeconds: 20
+  replicas: 4
+  selector:
+    role: vote
+  template:
     metadata:
-      name: vote 
-      labels: 
-        app: python 
-        role: vote 
-        version: v1 
+      name: vote
+      labels:
+        app: python
+        role: vote
+        version: v1
     spec:
-      containers: 
-        - name: app 
-          image: schoolofdevops/vote:v1 
+      containers:
+        - name: app
+          image: initcron/oc-vote:v1
           resources:
             requests:
               memory: "64Mi"
               cpu: "50m"
-            limits: 
+            limits:
               memory: "128Mi"
               cpu: "250m"
-
-
-
 
