@@ -184,6 +184,10 @@ dashboardProviders:
 
 dashboards:
   default: 
+    cluster-summary:
+      gnetId: 3870
+      revision: 1
+      datasource: Prometheus
     cluster-summary: 
       gnetId: 8685
       revision: 1
