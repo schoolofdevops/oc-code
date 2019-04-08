@@ -3,10 +3,10 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: vote
 spec:
-  minReplicas: 4
   maxReplicas: 15
-  targetCPUUtilizationPercentage: 40
+  minReplicas: 4
   scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
+    apiVersion: apps.openshift.io/v1
+    kind: DeploymentConfig
     name: vote
+  targetCPUUtilizationPercentage: 60
