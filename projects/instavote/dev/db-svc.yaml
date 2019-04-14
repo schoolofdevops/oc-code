@@ -6,7 +6,6 @@ metadata:
     role: db
     tier: back
   name: db
-  namespace: instavote
 spec:
   selector:
     role: db

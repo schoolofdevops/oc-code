@@ -2,7 +2,6 @@ apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata: 
   name: results
-  namespace: instavote
 spec: 
   xxx
 
